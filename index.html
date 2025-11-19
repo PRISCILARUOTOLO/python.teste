@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo de Perguntas em Python</title>
+
+    <!-- Carrega PyScript -->
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        #output {
+            white-space: pre-wrap;
+            margin-top: 20px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JOGO DE PERGUNTAS</h1>
+    <p>O jogo foi criado para utilizar dados fornecidos pelo jogador usando <b>input</b>, e então gerar respostas e um sistema de pontuação.</p>
+
+    <!-- Área onde o resultado aparecerá -->
+    <div id="output"></div>
+
+    <!-- Aqui entra o código Python adaptado -->
+    <py-script>
+from pyscript import display
+
+saida = ""
+
+saida += "JOGO DE PERGUNTAS\n"
+saida += "O jogo utilizará INPUTs para coletar respostas.\n\n"
+
+# Pede o nome
+nome = input("Qual é o seu nome? ")
+saida += f"Oi {nome}!\n\n"
+
+pontos = 0
+
+# Pergunta 1
+matematico = input("Qual foi o matemático que desenvolveu a fórmula a² = b² + c²? ")
+
+if matematico.lower() == "pitágoras" or matematico.lower() == "pitagoras":
+    saida += f"Parabéns, {nome}, você acertou! 🤓\n"
+    pontos += 1
+else:
+    saida += f"Que pena, {nome}, você errou. 🤔\n"
+
+saida += f"\nPontuação final: {pontos}\n"
+
+# Mostrar tudo na tela
+display(saida, target="output")
+    </py-script>
+
+</body>
+</html>
